@@ -1,25 +1,25 @@
-import React from 'react';
-import {Linking, Modal, TouchableWithoutFeedback} from 'react-native';
-import OneSection from './OneSection';
-import * as S from './styles';
+import React from "react";
+import { Linking, Modal, TouchableWithoutFeedback } from "react-native";
+import OneSection from "./OneSection";
+import * as S from "./styles";
 
-const defaultImageProps = {height: 24, width: 24, fill: '#1679E2'};
+const defaultImageProps = { height: 24, width: 24, fill: "#1679E2" };
 
-const gmail = 'testreportmodal111@gmail.com';
+const gmail = "testreportmodal111@gmail.com";
 
 const messageTypes = {
-  PROBLEM: 'Problem',
-  SUGGEST: 'Suggest',
-  QUESTION: 'Question',
+  PROBLEM: "Problem",
+  SUGGEST: "Suggest",
+  QUESTION: "Question",
 };
 
-export default function ReportModal({isVisible, onOutPress, deviceInfo}) {
-  const onSectionPress = type => {
+export default function ReportModal({ isVisible, onOutPress, deviceInfo }) {
+  const onSectionPress = (type) => {
     if (type === messageTypes.PROBLEM) {
       Linking.openURL(
         `mailto:${gmail}?subject=Problem&body=Something wrong!
     DEVICE INFO: 
-        ${deviceInfo}`,
+        ${deviceInfo}`
       );
     } else if (type === messageTypes.SUGGEST) {
       Linking.openURL(`mailto:${gmail}?subject=Suggest&body=Suggest...`);

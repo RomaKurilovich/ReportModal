@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import MessageImage from '../assets/message.svg';
-import QuestionImage from '../assets/question.svg';
-import BugImage from '../assets/bug.svg';
-import MegaphoneImage from '../assets/megaphone.svg';
+import MessageImage from "../assets/message.svg";
+import QuestionImage from "../assets/question.svg";
+import BugImage from "../assets/bug.svg";
+import MegaphoneImage from "../assets/megaphone.svg";
 
 export const BackContainer = styled.TouchableOpacity.attrs({
   activeOpacity: 1,
