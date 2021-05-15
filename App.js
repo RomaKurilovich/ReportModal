@@ -2,6 +2,7 @@ import React from "react";
 import { Platform } from "react-native";
 import RNShake from "react-native-shake";
 import DeviceInfo from "react-native-device-info";
+import SplashScreen from "react-native-splash-screen";
 import MainScreen from "./src/MainScreen";
 import ReportModal from "./src/ReportModal";
 
@@ -13,6 +14,7 @@ const App = () => {
     RNShake.addListener(() => {
       setShowReportModal(true);
     });
+    SplashScreen.hide();
 
     const brand = DeviceInfo.getBrand();
     const systemName = DeviceInfo.getSystemName();
