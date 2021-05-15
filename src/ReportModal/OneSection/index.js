@@ -1,8 +1,8 @@
-import React from 'react';
-import {TouchableOpacity} from 'react-native';
-import * as S from './styles';
+import React from "react";
+import { TouchableOpacity } from "react-native";
+import * as S from "./styles";
 
-export default function OneSection({text, image, onSectionPress}) {
+export default function OneSection({ text, image, onSectionPress }) {
   return (
     <TouchableOpacity onPress={onSectionPress}>
       <S.Wrapper>
