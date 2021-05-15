@@ -9,13 +9,9 @@ const App = () => {
   const [showReportModal, setShowReportModal] = React.useState(false);
   const [deviceInfo, setDeviceInfo] = React.useState(null);
 
-  const changeVisibleReportModal = React.useCallback(() => {
-    setShowReportModal(!showReportModal);
-  }, [showReportModal]);
-
   React.useEffect(() => {
-    RNShake.addEventListener("ShakeEvent", () => {
-      changeVisibleReportModal();
+    RNShake.addListener(() => {
+      setShowReportModal(true);
     });
 
     const brand = DeviceInfo.getBrand();
@@ -53,15 +49,15 @@ const App = () => {
         );
       });
     }
-    return RNShake.removeEventListener("ShakeEvent");
-  }, [changeVisibleReportModal]);
+    return RNShake.removeListener();
+  }, []);
 
   return (
     <>
-      <MainScreen onShowModal={changeVisibleReportModal} />
+      <MainScreen onShowModal={() => setShowReportModal(true)} />
       <ReportModal
         isVisible={showReportModal}
-        onOutPress={changeVisibleReportModal}
+        onOutPress={() => setShowReportModal(false)}
         deviceInfo={deviceInfo}
       />
     </>

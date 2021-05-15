@@ -11,7 +11,7 @@ export default function MainScreen({ onShowModal }) {
     spinValue.setValue(0);
     Animated.spring(spinValue, {
       toValue: 15,
-      damping: 5.5,
+      damping: 7.5,
       useNativeDriver: true,
     }).start(() => {
       onShowModal();
