@@ -1,5 +1,10 @@
 import React from "react";
-import { Linking, Modal, TouchableWithoutFeedback } from "react-native";
+import {
+  Animated,
+  Linking,
+  Modal,
+  TouchableWithoutFeedback,
+} from "react-native";
 import OneSection from "./OneSection";
 import * as S from "./styles";
 
@@ -13,7 +18,7 @@ const messageTypes = {
   QUESTION: "Question",
 };
 
-export default function ReportModal({ isVisible, onOutPress, deviceInfo }) {
+export default function ReportModal({ isVisible, closeModa, deviceInfo }) {
   const onSectionPress = (type) => {
     if (type === messageTypes.PROBLEM) {
       Linking.openURL(
@@ -26,10 +31,11 @@ export default function ReportModal({ isVisible, onOutPress, deviceInfo }) {
     } else if (type === messageTypes.QUESTION) {
       Linking.openURL(`mailto:${gmail}?subject=Question&body=Question...`);
     }
+    closeModa();
   };
   return (
-    <Modal animationType="none" transparent visible={isVisible}>
-      <S.BackContainer onPressOut={onOutPress}>
+    <Modal animationType="fade" transparent visible={isVisible}>
+      <S.BackContainer onPressOut={closeModa}>
         <TouchableWithoutFeedback>
           <S.ModalContainer>
             <S.HeaderWrapper>

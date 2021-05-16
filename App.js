@@ -59,7 +59,7 @@ const App = () => {
       <MainScreen onShowModal={() => setShowReportModal(true)} />
       <ReportModal
         isVisible={showReportModal}
-        onOutPress={() => setShowReportModal(false)}
+        closeModa={() => setShowReportModal(false)}
         deviceInfo={deviceInfo}
       />
     </>
