@@ -6,16 +6,22 @@ const iconWidth = Dimensions.get("window").width * 0.75;
 const iconHeight = iconWidth * 1.35;
 
 export default function MainScreen({ onShowModal }) {
+  const [animStatusInProgress, setAnimStatusInProgress] = React.useState(false);
   const spinValue = React.useRef(new Animated.Value(15)).current;
   const startAnim = () => {
-    spinValue.setValue(0);
-    Animated.spring(spinValue, {
-      toValue: 15,
-      damping: 7.5,
-      useNativeDriver: true,
-    }).start(() => {
-      onShowModal();
-    });
+    if (!animStatusInProgress) {
+      setAnimStatusInProgress(true);
+      spinValue.setValue(0);
+      setTimeout(() => {
+        onShowModal();
+        setAnimStatusInProgress(false);
+      }, 1000);
+      Animated.spring(spinValue, {
+        toValue: 15,
+        damping: 6.5,
+        useNativeDriver: true,
+      }).start();
+    }
   };
 
   const spin = spinValue.interpolate({
