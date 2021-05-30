@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Platform } from "react-native";
 import RNShake from "react-native-shake";
 import DeviceInfo from "react-native-device-info";
@@ -7,10 +7,10 @@ import MainScreen from "./src/MainScreen";
 import ReportModal from "./src/ReportModal";
 
 const App = () => {
-  const [showReportModal, setShowReportModal] = React.useState(false);
-  const [deviceInfo, setDeviceInfo] = React.useState(null);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [deviceInfo, setDeviceInfo] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     RNShake.addListener(() => {
       setShowReportModal(true);
     });

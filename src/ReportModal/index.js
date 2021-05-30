@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Animated,
-  Linking,
-  Modal,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { Linking, Modal, TouchableWithoutFeedback } from "react-native";
 import OneSection from "./OneSection";
 import * as S from "./styles";
 

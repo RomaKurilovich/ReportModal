@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Animated, Dimensions, TouchableWithoutFeedback } from "react-native";
 import * as S from "./styles";
 
@@ -6,8 +6,8 @@ const iconWidth = Dimensions.get("window").width * 0.75;
 const iconHeight = iconWidth * 1.35;
 
 export default function MainScreen({ onShowModal }) {
-  const [animStatusInProgress, setAnimStatusInProgress] = React.useState(false);
-  const spinValue = React.useRef(new Animated.Value(15)).current;
+  const [animStatusInProgress, setAnimStatusInProgress] = useState(false);
+  const spinValue = useRef(new Animated.Value(15)).current;
   const startAnim = () => {
     if (!animStatusInProgress) {
       setAnimStatusInProgress(true);
